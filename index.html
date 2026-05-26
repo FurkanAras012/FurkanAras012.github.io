@@ -36,19 +36,20 @@
   @keyframes floaty{0%,100%{translate:0 0;}50%{translate:0 -12px;}}
   @keyframes rise{from{opacity:0;transform:translateY(22px);}to{opacity:1;transform:translateY(0);}}
 
-  /* arka katman: dashboard sol, portre sağ-üst */
-  .hv{position:absolute;z-index:1;left:-2%;top:56%;transform:translateY(-50%);width:min(460px,43vw);perspective:1500px;opacity:.9;animation:rise .9s both;}
+  .stage{position:relative;width:100%;max-width:980px;min-height:480px;display:grid;place-items:center;}
+  /* arka katman: sahneye göre konumlanır → metne yakın, hafif arkada */
+  .hv{position:absolute;z-index:1;left:-10px;top:50%;transform:translateY(-50%);width:min(420px,40vw);perspective:1500px;opacity:.9;animation:rise .9s both;}
   .hv-inner{position:relative;transform-style:preserve-3d;transform:rotateY(15deg) rotateX(8deg) rotateZ(-.5deg);
     transition:transform .25s cubic-bezier(.2,.7,.2,1);animation:floaty 7s ease-in-out infinite;}
-  .portrait-zone{position:absolute;z-index:1;right:1%;top:12%;}
-  .portrait-zone img{width:clamp(155px,15vw,210px);aspect-ratio:1;display:block;border-radius:22px;
+  .portrait-zone{position:absolute;z-index:1;right:-16px;top:-30px;}
+  .portrait-zone img{width:clamp(140px,13vw,188px);aspect-ratio:1;display:block;border-radius:22px;
     border:1px solid rgba(45,212,191,.35);box-shadow:0 22px 60px rgba(0,0,0,.55),0 0 50px rgba(45,212,191,.18);
     transform:rotate(3deg);animation:floaty 6.5s ease-in-out infinite,rise .9s .15s both;}
   /* okunabilirlik perdesi (ortayı karart, kenarlarda görseller sızsın) */
-  .hero-scrim{position:absolute;inset:0;z-index:2;pointer-events:none;
-    background:radial-gradient(ellipse 58% 56% at 50% 50%,rgba(10,16,32,.88) 0%,rgba(10,16,32,.58) 42%,transparent 76%);}
+  .hero-scrim{position:absolute;inset:-70px;z-index:2;pointer-events:none;
+    background:radial-gradient(ellipse 62% 66% at 50% 50%,rgba(10,16,32,.92) 0%,rgba(10,16,32,.62) 44%,transparent 80%);}
 
-  .text-zone{position:relative;z-index:3;text-align:center;max-width:740px;}
+  .text-zone{position:relative;z-index:3;text-align:center;max-width:600px;}
   .text-zone h1{font-size:clamp(36px,6vw,66px);line-height:1.04;font-weight:800;letter-spacing:-.6px;
     text-shadow:0 2px 40px rgba(0,0,0,.6);animation:rise .7s .1s both;}
   .text-zone h1 .grad{background:linear-gradient(90deg,var(--accent),var(--accent2));-webkit-background-clip:text;background-clip:text;color:transparent;}
@@ -112,7 +113,8 @@
   @keyframes bob{0%,100%{transform:translateX(-50%) translateY(0);}50%{transform:translateX(-50%) translateY(7px);}}
 
   @media(max-width:980px){
-    .hero{display:flex;flex-direction:column;justify-content:center;padding-top:100px;}
+    .hero{padding-top:100px;}
+    .stage{display:flex;flex-direction:column;justify-content:center;min-height:auto;max-width:100%;}
     .hero-scrim{display:none;}
     .orb{opacity:.5;}
     .portrait-zone{position:static;order:1;align-self:center;margin-bottom:22px;}
@@ -179,6 +181,7 @@
 <header class="hero">
   <div class="orb a"></div><div class="orb b"></div>
 
+  <div class="stage">
   <!-- arka: ERP dashboard mockup (sol) -->
   <div class="hv" id="tilt">
     <div class="hv-inner" id="tiltInner">
@@ -252,6 +255,7 @@
     </div>
   </div>
 
+  </div><!-- /stage -->
   <div class="scrolldown">↓ KAYDIR</div>
 </header>
 
