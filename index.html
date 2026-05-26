@@ -14,7 +14,7 @@
   html{scroll-behavior:smooth;}
   body{font-family:"Segoe UI",system-ui,-apple-system,Arial,sans-serif;background:var(--bg);color:var(--ink);line-height:1.6;overflow-x:hidden;}
   a{color:inherit;text-decoration:none;}
-  .wrap{max-width:1040px;margin:0 auto;padding:0 24px;}
+  .wrap{max-width:1060px;margin:0 auto;padding:0 24px;}
 
   /* NAV */
   nav{position:fixed;top:0;left:0;right:0;z-index:30;backdrop-filter:blur(12px);
@@ -27,46 +27,45 @@
   @media(max-width:640px){nav .links{display:none;}}
 
   /* HERO */
-  .hero{position:relative;min-height:100vh;display:flex;align-items:center;overflow:hidden;}
-  #bg3d{position:absolute;inset:0;width:100%;height:100%;z-index:0;}
-  /* sağda parlayan ışık küresi (3D'ye derinlik) */
-  .glow{position:absolute;z-index:0;top:50%;right:8%;width:46vw;height:46vw;max-width:680px;max-height:680px;
-    transform:translateY(-50%);border-radius:50%;pointer-events:none;
-    background:radial-gradient(circle,rgba(45,212,191,.20),rgba(56,189,248,.10) 40%,transparent 70%);filter:blur(20px);}
-  /* SOL metni okunaklı kılan perde: solda koyu → sağa şeffaf */
-  .hero-overlay{position:absolute;inset:0;z-index:1;pointer-events:none;
-    background:linear-gradient(90deg,var(--bg) 0%,rgba(10,16,32,.94) 28%,rgba(10,16,32,.45) 58%,transparent 80%);}
-  .hero .wrap{position:relative;z-index:2;}
-  .hero .inner{max-width:600px;}
-  .portrait{width:152px;height:152px;border-radius:50%;margin-bottom:24px;position:relative;animation:rise .7s .05s both;}
-  .portrait::before{content:"";position:absolute;inset:-3px;border-radius:50%;
-    background:conic-gradient(from 0deg,#2dd4bf,#38bdf8,#7af0e0,#2dd4bf);animation:spin 6s linear infinite;}
-  .portrait .disc{position:absolute;inset:0;border-radius:50%;overflow:hidden;
-    background:radial-gradient(circle,#0e1830,#0a1020);box-shadow:0 10px 36px rgba(45,212,191,.4);}
-  .portrait .disc canvas,.portrait .disc img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;}
-  @keyframes spin{to{transform:rotate(360deg);}}
-  .hero h1{font-size:clamp(34px,6.2vw,62px);line-height:1.04;font-weight:800;letter-spacing:-.6px;
-    text-shadow:0 2px 30px rgba(0,0,0,.55);animation:rise .7s .12s both;}
-  .hero h1 .grad{background:linear-gradient(90deg,var(--accent),var(--accent2));-webkit-background-clip:text;background-clip:text;color:transparent;}
-  .hero .role{margin-top:12px;font-size:clamp(15px,2.4vw,19px);color:var(--accent);font-weight:600;
-    text-shadow:0 1px 16px rgba(0,0,0,.5);animation:rise .7s .2s both;}
-  .hero .tag{margin-top:16px;max-width:560px;color:#c6d2e6;font-size:clamp(14px,2vw,17px);
-    text-shadow:0 1px 16px rgba(0,0,0,.55);animation:rise .7s .28s both;}
-  .cta{margin-top:32px;display:flex;flex-wrap:wrap;gap:12px;animation:rise .7s .36s both;}
-  .btn{display:inline-flex;align-items:center;gap:8px;padding:12px 22px;border-radius:11px;font-weight:600;font-size:14px;
-    border:1px solid var(--line);transition:.22s;}
+  .hero{position:relative;min-height:100vh;display:flex;align-items:center;overflow:hidden;padding:90px 0 60px;}
+  .orb{position:absolute;border-radius:50%;filter:blur(40px);pointer-events:none;z-index:0;}
+  .orb.a{width:48vw;height:48vw;max-width:620px;max-height:620px;right:-6%;top:46%;transform:translateY(-50%);
+    background:radial-gradient(circle,rgba(45,212,191,.22),transparent 68%);animation:pulse 7s ease-in-out infinite;}
+  .orb.b{width:34vw;height:34vw;max-width:420px;max-height:420px;left:-8%;bottom:-10%;
+    background:radial-gradient(circle,rgba(56,189,248,.16),transparent 68%);animation:pulse 9s ease-in-out infinite reverse;}
+  @keyframes pulse{0%,100%{opacity:.7;transform:translateY(-50%) scale(1);}50%{opacity:1;transform:translateY(-50%) scale(1.08);}}
+
+  .hero .wrap{position:relative;z-index:2;display:grid;grid-template-columns:1.05fr .95fr;gap:48px;align-items:center;}
+  .htext h1{font-size:clamp(32px,5.4vw,56px);line-height:1.05;font-weight:800;letter-spacing:-.6px;animation:rise .7s .1s both;}
+  .htext h1 .grad{background:linear-gradient(90deg,var(--accent),var(--accent2));-webkit-background-clip:text;background-clip:text;color:transparent;}
+  .htext .role{margin-top:12px;font-size:clamp(15px,2.2vw,19px);color:var(--accent);font-weight:600;animation:rise .7s .2s both;}
+  .htext .tag{margin-top:16px;max-width:540px;color:#c6d2e6;font-size:clamp(14px,1.9vw,17px);animation:rise .7s .28s both;}
+  .cta{margin-top:30px;display:flex;flex-wrap:wrap;gap:12px;animation:rise .7s .36s both;}
+  .btn{display:inline-flex;align-items:center;gap:8px;padding:12px 22px;border-radius:11px;font-weight:600;font-size:14px;border:1px solid var(--line);transition:.22s;}
   .btn.primary{background:linear-gradient(135deg,var(--accent),var(--accent2));color:#04201c;border:none;box-shadow:0 8px 26px rgba(45,212,191,.35);}
   .btn.primary:hover{filter:brightness(1.08);transform:translateY(-2px);box-shadow:0 12px 32px rgba(45,212,191,.5);}
   .btn.ghost:hover{border-color:var(--accent);color:var(--accent);transform:translateY(-2px);}
-  .scrolldown{position:absolute;bottom:26px;left:50%;transform:translateX(-50%);z-index:2;color:var(--muted);font-size:12px;letter-spacing:2px;animation:bob 2s infinite;}
+
+  /* HERO IMAGE */
+  .pic{justify-self:center;perspective:1000px;animation:floaty 6s ease-in-out infinite;}
+  .pic img{width:min(420px,82vw);aspect-ratio:1;display:block;border-radius:24px;
+    border:1px solid rgba(45,212,191,.35);
+    box-shadow:0 24px 70px rgba(0,0,0,.55), 0 0 60px rgba(45,212,191,.18);
+    transition:transform .18s ease, box-shadow .3s ease;animation:rise .8s .15s both;}
+  .pic img:hover{box-shadow:0 28px 80px rgba(0,0,0,.6), 0 0 80px rgba(45,212,191,.3);}
+  @keyframes floaty{0%,100%{transform:translateY(0);}50%{transform:translateY(-14px);}}
+
+  .scrolldown{position:absolute;bottom:24px;left:50%;transform:translateX(-50%);z-index:2;color:var(--muted);font-size:12px;letter-spacing:2px;animation:bob 2s infinite;}
   @keyframes bob{0%,100%{transform:translateX(-50%) translateY(0);}50%{transform:translateX(-50%) translateY(7px);}}
   @keyframes rise{from{opacity:0;transform:translateY(22px);}to{opacity:1;transform:translateY(0);}}
 
-  /* mobilde 3D arkada kalır, metin için tam perde */
-  @media(max-width:760px){
-    .hero-overlay{background:linear-gradient(180deg,rgba(10,16,32,.55) 0%,rgba(10,16,32,.8) 60%,var(--bg) 100%);}
-    .glow{right:50%;transform:translate(50%,-50%);top:32%;width:80vw;height:80vw;opacity:.7;}
-    .hero{align-items:flex-end;padding-bottom:14vh;}
+  @media(max-width:860px){
+    .hero{padding-top:96px;}
+    .hero .wrap{grid-template-columns:1fr;text-align:center;gap:34px;}
+    .pic{order:-1;}
+    .pic img{width:min(300px,72vw);}
+    .htext .tag{margin-left:auto;margin-right:auto;}
+    .cta{justify-content:center;}
   }
 
   /* SECTIONS */
@@ -96,13 +95,12 @@
   .contact a.card{display:block;}
   footer{padding:34px 0;border-top:1px solid var(--line);color:var(--muted);font-size:13px;text-align:center;}
 
-  /* SCROLL REVEAL */
   .reveal{opacity:0;transform:translateY(28px);transition:opacity .6s ease,transform .6s ease;}
   .reveal.in{opacity:1;transform:none;}
   @media(prefers-reduced-motion:reduce){
     .reveal{opacity:1;transform:none;transition:none;}
-    .scrolldown{animation:none;}
-    .portrait,.portrait::before,.hero h1,.hero .role,.hero .tag,.cta{animation:none;}
+    .scrolldown,.orb,.pic{animation:none;}
+    .htext h1,.htext .role,.htext .tag,.cta,.pic img{animation:none;}
   }
 </style>
 </head>
@@ -117,24 +115,24 @@
 
 <!-- ===== HERO ===== -->
 <header class="hero">
-  <canvas id="bg3d"></canvas>
-  <div class="glow"></div>
-  <div class="hero-overlay"></div>
-  <div class="wrap"><div class="inner">
-    <div class="portrait" id="portrait"><div class="disc" id="portraitDisc"></div></div>
-    <h1>Furkan Aras<br><span class="grad">ERP Entegrasyon &amp; .NET</span></h1>
-    <div class="role">Team Lead · Kıdemli Yazılım Geliştirme Uzmanı</div>
-    <p class="tag">
-      <b style="color:#e6edf6">ERP · Proje Yönetimi · Yazılım</b>'ı tek çatıda birleştiren çözümler kuruyorum —
-      Logo Netsis/Tiger &amp; NetOpenX entegrasyonu, onay akışları ve <b style="color:#e6edf6">AI-destekli</b> platform geliştirme.
-    </p>
-    <div class="cta">
-      <a class="btn primary" href="cv.pdf" target="_blank">📄 CV (PDF)</a>
-      <a class="btn ghost" href="https://github.com/FurkanAras012" target="_blank">GitHub</a>
-      <a class="btn ghost" href="https://www.linkedin.com/in/furkan-aras-6670a5209/" target="_blank">LinkedIn</a>
-      <a class="btn ghost" href="mailto:furkanaras012@gmail.com">E-posta</a>
+  <div class="orb a"></div><div class="orb b"></div>
+  <div class="wrap">
+    <div class="htext">
+      <h1>Furkan Aras<br><span class="grad">ERP Entegrasyon &amp; .NET</span></h1>
+      <div class="role">Team Lead · Kıdemli Yazılım Geliştirme Uzmanı</div>
+      <p class="tag">
+        <b style="color:#e6edf6">ERP · Proje Yönetimi · Yazılım</b>'ı tek çatıda birleştiren çözümler kuruyorum —
+        Logo Netsis/Tiger &amp; NetOpenX entegrasyonu, onay akışları ve <b style="color:#e6edf6">AI-destekli</b> platform geliştirme.
+      </p>
+      <div class="cta">
+        <a class="btn primary" href="cv.pdf" target="_blank">📄 CV (PDF)</a>
+        <a class="btn ghost" href="https://github.com/FurkanAras012" target="_blank">GitHub</a>
+        <a class="btn ghost" href="https://www.linkedin.com/in/furkan-aras-6670a5209/" target="_blank">LinkedIn</a>
+        <a class="btn ghost" href="mailto:furkanaras012@gmail.com">E-posta</a>
+      </div>
     </div>
-  </div></div>
+    <div class="pic"><img id="heroImg" src="chaticonic.png" alt="Furkan Aras — dijital portre"></div>
+  </div>
   <div class="scrolldown">↓ KAYDIR</div>
 </header>
 
@@ -211,147 +209,21 @@
 
 <footer><div class="wrap">© <span id="yr"></span> Furkan Aras · İzmir, Türkiye</div></footer>
 
-<script>document.getElementById('yr').textContent=new Date().getFullYear();
+<script>
+  document.getElementById('yr').textContent=new Date().getFullYear();
   // Scroll reveal
   const io=new IntersectionObserver((es)=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}}),{threshold:.15});
   document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
-
-  // Dijital dot-matrix portre (me.jpg → noktalara)
+  // Hero görseline hafif mouse-tilt (şov)
   (function(){
-    const disc=document.getElementById('portraitDisc'); if(!disc) return;
-    const S=320, N=82, cv=document.createElement('canvas'); cv.width=cv.height=S;
-    const ctx=cv.getContext('2d'); const img=new Image();
-    img.onload=function(){
-      try{
-        const W=img.naturalWidth, H=img.naturalHeight, side=Math.min(W,H)*0.62;
-        let sx=W*0.52-side/2, sy=H*0.40-side/2;
-        sx=Math.max(0,Math.min(sx,W-side)); sy=Math.max(0,Math.min(sy,H-side));
-        const sc=document.createElement('canvas'); sc.width=sc.height=N;
-        const sctx=sc.getContext('2d'); sctx.drawImage(img,sx,sy,side,side,0,0,N,N);
-        const d=sctx.getImageData(0,0,N,N).data;
-        const cell=S/N, cx=S/2, cy=S/2, rad=S/2-3;
-        ctx.clearRect(0,0,S,S);
-        for(let j=0;j<N;j++)for(let i=0;i<N;i++){
-          const k=(j*N+i)*4, lum=(0.299*d[k]+0.587*d[k+1]+0.114*d[k+2])/255;
-          if(lum<0.05) continue;
-          const px=i*cell+cell/2, py=j*cell+cell/2;
-          if(Math.hypot(px-cx,py-cy)>rad) continue;
-          ctx.beginPath();
-          ctx.fillStyle = lum>0.62?'#9ff5e8': lum>0.34?'#2dd4bf':'#176b66';
-          ctx.globalAlpha = 0.18+0.82*lum;
-          ctx.arc(px,py,Math.max(0.5,cell*0.46*(0.25+0.85*lum)),0,Math.PI*2); ctx.fill();
-        }
-        ctx.globalAlpha=1; cv.style.width=cv.style.height='100%'; disc.appendChild(cv);
-      }catch(e){ disc.innerHTML='<img src="me.jpg" alt="Furkan Aras">'; }
-    };
-    img.onerror=function(){ disc.innerHTML='<img src="me.jpg" alt="Furkan Aras">'; };
-    img.src='me.jpg';
+    const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const img=document.getElementById('heroImg'); if(!img||reduce) return;
+    const box=img.parentElement;
+    box.addEventListener('mousemove',e=>{ const r=img.getBoundingClientRect();
+      const x=(e.clientX-r.left)/r.width-0.5, y=(e.clientY-r.top)/r.height-0.5;
+      img.style.transform=`rotateY(${x*10}deg) rotateX(${-y*10}deg)`; });
+    box.addEventListener('mouseleave',()=>{ img.style.transform='rotateY(0) rotateX(0)'; });
   })();
-</script>
-
-<!-- ===== 3D HERO (Three.js, buildless) ===== -->
-<script type="importmap">
-{ "imports": { "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js" } }
-</script>
-<script type="module">
-  const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  try {
-    const THREE = await import('three');
-    const canvas = document.getElementById('bg3d');
-    const renderer = new THREE.WebGLRenderer({ canvas, alpha:true, antialias:true });
-    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
-
-    const scene = new THREE.Scene();
-    const camera = new THREE.PerspectiveCamera(60, 1, 0.1, 100);
-    camera.position.z = 8;
-
-    // Odak grubu — sağa kaydırılır (metin solda net kalır)
-    const focal = new THREE.Group(); scene.add(focal);
-
-    // MERKEZ: sen / platform — ERP·PM·Yazılım'ı birleştiren çekirdek
-    const core = new THREE.Mesh(
-      new THREE.IcosahedronGeometry(0.95, 1),
-      new THREE.MeshBasicMaterial({ color:0x2dd4bf, wireframe:true, transparent:true, opacity:0.9 })
-    );
-    const coreGlow = new THREE.Points(
-      new THREE.IcosahedronGeometry(1.1, 2),
-      new THREE.PointsMaterial({ color:0x7af0e0, size:0.05, transparent:true, opacity:0.85, blending:THREE.AdditiveBlending, depthWrite:false })
-    );
-    focal.add(core, coreGlow);
-
-    // Etiket sprite (canvas → texture; addon yok, her zaman kameraya bakar → okunaklı)
-    function roundRect(c,x,y,w,h,r){c.beginPath();c.moveTo(x+r,y);c.arcTo(x+w,y,x+w,y+h,r);c.arcTo(x+w,y+h,x,y+h,r);c.arcTo(x,y+h,x,y,r);c.arcTo(x,y,x+w,y,r);c.closePath();}
-    function label(text, accent){
-      const fs=46, pad=26, c=document.createElement('canvas'), x=c.getContext('2d');
-      x.font=`700 ${fs}px Segoe UI, Arial`; const w=x.measureText(text).width;
-      c.width=Math.ceil(w+pad*2); c.height=Math.ceil(fs+pad*1.3);
-      x.fillStyle='rgba(17,26,46,.88)'; x.strokeStyle=accent; x.lineWidth=3.5;
-      roundRect(x,3,3,c.width-6,c.height-6,20); x.fill(); x.stroke();
-      x.font=`700 ${fs}px Segoe UI, Arial`; x.fillStyle='#e6edf6'; x.textBaseline='middle';
-      x.fillText(text, pad, c.height/2+2);
-      const tex=new THREE.CanvasTexture(c); tex.minFilter=THREE.LinearFilter; tex.anisotropy=4;
-      const sp=new THREE.Sprite(new THREE.SpriteMaterial({ map:tex, transparent:true }));
-      sp.scale.set((c.width/c.height)*0.6, 0.6, 1);
-      return sp;
-    }
-
-    // 3 düğüm: ERP · Proje Yönetimi · Yazılım
-    const defs=[
-      { t:'ERP',            p:new THREE.Vector3( 2.1, 1.55, 0.2), c:'#2dd4bf' },
-      { t:'Proje Yönetimi', p:new THREE.Vector3( 2.5,-1.15,-0.4), c:'#38bdf8' },
-      { t:'</> Yazılım',    p:new THREE.Vector3( 0.3,-2.05, 0.4), c:'#7af0e0' },
-    ];
-    const nodes=[];
-    defs.forEach(d=>{
-      const n=new THREE.Mesh(new THREE.SphereGeometry(0.16,16,16), new THREE.MeshBasicMaterial({color:0xffffff}));
-      n.position.copy(d.p); focal.add(n);
-      const lab=label(d.t, d.c); lab.position.copy(d.p).add(new THREE.Vector3(0,0.55,0)); focal.add(lab);
-      const lg=new THREE.BufferGeometry().setFromPoints([new THREE.Vector3(0,0,0), d.p.clone()]);
-      focal.add(new THREE.Line(lg, new THREE.LineBasicMaterial({color:0x2dd4bf, transparent:true, opacity:0.22})));
-      nodes.push(d.p);
-    });
-
-    // Akan veri parçacıkları (çekirdek ↔ düğümler) = entegrasyon/akış hissi
-    const per=6, fN=nodes.length*per, fp=new Float32Array(fN*3), ft=new Float32Array(fN);
-    for(let i=0;i<fN;i++) ft[i]=Math.random();
-    const flow=new THREE.Points(new THREE.BufferGeometry().setAttribute('position',new THREE.BufferAttribute(fp,3)),
-      new THREE.PointsMaterial({ color:0x7af0e0, size:0.10, transparent:true, opacity:0.95, blending:THREE.AdditiveBlending, depthWrite:false }));
-    focal.add(flow);
-
-    // Atmosfer yıldız alanı
-    const sN=400, sp=new Float32Array(sN*3); for(let i=0;i<sN*3;i++) sp[i]=(Math.random()-0.5)*30;
-    const stars=new THREE.Points(new THREE.BufferGeometry().setAttribute('position',new THREE.BufferAttribute(sp,3)),
-      new THREE.PointsMaterial({ color:0x38bdf8, size:0.03, transparent:true, opacity:0.45 }));
-    scene.add(stars);
-
-    let mx=0,my=0; addEventListener('mousemove', e=>{ mx=e.clientX/innerWidth-0.5; my=e.clientY/innerHeight-0.5; }, {passive:true});
-    function resize(){
-      const w=canvas.clientWidth, h=canvas.clientHeight;
-      renderer.setSize(w,h,false); camera.aspect=w/h; camera.updateProjectionMatrix();
-      const wide = w/h > 1;
-      focal.position.x = wide ? 2.3 : 0; focal.position.y = wide ? 0 : 0.4;
-      focal.scale.setScalar(wide ? 1 : 0.66);
-    }
-    resize(); addEventListener('resize', resize);
-
-    let running=true; document.addEventListener('visibilitychange', ()=> running=!document.hidden);
-    let t=0;
-    function loop(){
-      requestAnimationFrame(loop); if(!running) return;
-      const s = reduce ? 0 : 1; t += 0.01*s;
-      focal.rotation.y = Math.sin(t*0.35)*0.4;   // tam dönme yok → etiketler okunaklı kalır
-      core.rotation.y += 0.004*s; core.rotation.x += 0.002*s; coreGlow.rotation.y -= 0.003*s;
-      for(let i=0;i<fN;i++){ const li=i%nodes.length; ft[i]+=0.005*s; if(ft[i]>1) ft[i]-=1;
-        const p=nodes[li], k=ft[i]; fp[i*3]=p.x*k; fp[i*3+1]=p.y*k; fp[i*3+2]=p.z*k; }
-      flow.geometry.attributes.position.needsUpdate=true;
-      stars.rotation.y += 0.0003*s;
-      camera.position.x += (mx*1.2 - camera.position.x)*0.045;
-      camera.position.y += (-my*0.8 - camera.position.y)*0.045;
-      camera.lookAt(0,0,0);
-      renderer.render(scene,camera);
-    }
-    loop();
-  } catch(e){ /* WebGL yoksa hero gradient + glow ile zaten şık */ }
 </script>
 
 </body>
