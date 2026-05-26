@@ -7,18 +7,17 @@
 <meta name="description" content="Furkan Aras — Logo Netsis/Tiger & NetOpenX uzmanı .NET geliştiricisi, Team Lead. ERP entegrasyonu, workflow ve AI-destekli platform geliştirme.">
 <style>
   :root{
-    --bg:#0a1020; --panel:#111a2e; --ink:#e6edf6; --muted:#93a4bd;
-    --accent:#2dd4bf; --accent2:#38bdf8; --line:rgba(255,255,255,.08);
+    --bg:#0a1020; --panel:#111a2e; --panel2:#0e1424; --ink:#e6edf6; --muted:#93a4bd; --faint:#67739a;
+    --accent:#2dd4bf; --accent2:#38bdf8; --line:rgba(255,255,255,.08); --line2:rgba(255,255,255,.14);
+    --glow:rgba(45,212,191,.4);
   }
   *{box-sizing:border-box;margin:0;padding:0;}
   html{scroll-behavior:smooth;}
   body{font-family:"Segoe UI",system-ui,-apple-system,Arial,sans-serif;background:var(--bg);color:var(--ink);line-height:1.6;overflow-x:hidden;}
   a{color:inherit;text-decoration:none;}
-  .wrap{max-width:1060px;margin:0 auto;padding:0 24px;}
+  .wrap{max-width:1200px;margin:0 auto;padding:0 26px;}
 
-  /* NAV */
-  nav{position:fixed;top:0;left:0;right:0;z-index:30;backdrop-filter:blur(12px);
-    background:rgba(10,16,32,.55);border-bottom:1px solid var(--line);}
+  nav{position:fixed;top:0;left:0;right:0;z-index:30;backdrop-filter:blur(12px);background:rgba(10,16,32,.55);border-bottom:1px solid var(--line);}
   nav .wrap{display:flex;justify-content:space-between;align-items:center;height:58px;}
   nav .logo{font-weight:800;letter-spacing:.5px;}
   nav .logo span{color:var(--accent);}
@@ -26,46 +25,100 @@
   nav .links a:hover{color:var(--ink);}
   @media(max-width:640px){nav .links{display:none;}}
 
-  /* HERO */
-  .hero{position:relative;min-height:100vh;display:flex;align-items:center;overflow:hidden;padding:90px 0 60px;}
-  .orb{position:absolute;border-radius:50%;filter:blur(40px);pointer-events:none;z-index:0;}
-  .orb.a{width:48vw;height:48vw;max-width:620px;max-height:620px;right:-6%;top:46%;transform:translateY(-50%);
-    background:radial-gradient(circle,rgba(45,212,191,.22),transparent 68%);animation:pulse 7s ease-in-out infinite;}
-  .orb.b{width:34vw;height:34vw;max-width:420px;max-height:420px;left:-8%;bottom:-10%;
-    background:radial-gradient(circle,rgba(56,189,248,.16),transparent 68%);animation:pulse 9s ease-in-out infinite reverse;}
-  @keyframes pulse{0%,100%{opacity:.7;transform:translateY(-50%) scale(1);}50%{opacity:1;transform:translateY(-50%) scale(1.08);}}
+  /* HERO 3-zone */
+  .hero{position:relative;min-height:100vh;display:flex;align-items:center;overflow:hidden;padding:96px 0 60px;}
+  .orb{position:absolute;border-radius:50%;filter:blur(46px);pointer-events:none;z-index:0;}
+  .orb.a{width:44vw;height:44vw;max-width:560px;max-height:560px;left:-6%;top:42%;transform:translateY(-50%);
+    background:radial-gradient(circle,rgba(45,212,191,.16),transparent 68%);animation:pulse 7s ease-in-out infinite;}
+  .orb.b{width:34vw;height:34vw;max-width:420px;max-height:420px;right:-6%;bottom:-8%;
+    background:radial-gradient(circle,rgba(56,189,248,.14),transparent 68%);animation:pulse 9s ease-in-out infinite reverse;}
+  @keyframes pulse{0%,100%{opacity:.7;}50%{opacity:1;}}
 
-  .hero .wrap{position:relative;z-index:2;display:grid;grid-template-columns:1.05fr .95fr;gap:48px;align-items:center;}
-  .htext h1{font-size:clamp(32px,5.4vw,56px);line-height:1.05;font-weight:800;letter-spacing:-.6px;animation:rise .7s .1s both;}
-  .htext h1 .grad{background:linear-gradient(90deg,var(--accent),var(--accent2));-webkit-background-clip:text;background-clip:text;color:transparent;}
-  .htext .role{margin-top:12px;font-size:clamp(15px,2.2vw,19px);color:var(--accent);font-weight:600;animation:rise .7s .2s both;}
-  .htext .tag{margin-top:16px;max-width:540px;color:#c6d2e6;font-size:clamp(14px,1.9vw,17px);animation:rise .7s .28s both;}
-  .cta{margin-top:30px;display:flex;flex-wrap:wrap;gap:12px;animation:rise .7s .36s both;}
-  .btn{display:inline-flex;align-items:center;gap:8px;padding:12px 22px;border-radius:11px;font-weight:600;font-size:14px;border:1px solid var(--line);transition:.22s;}
+  .hero .wrap{position:relative;z-index:2;display:grid;grid-template-columns:1.15fr .92fr .5fr;gap:30px;align-items:center;}
+  .text-zone{text-align:center;}
+  .text-zone h1{font-size:clamp(28px,3.4vw,44px);line-height:1.06;font-weight:800;letter-spacing:-.5px;animation:rise .7s .1s both;}
+  .text-zone h1 .grad{background:linear-gradient(90deg,var(--accent),var(--accent2));-webkit-background-clip:text;background-clip:text;color:transparent;}
+  .text-zone .role{margin-top:11px;font-size:clamp(14px,1.5vw,16px);color:var(--accent);font-weight:600;animation:rise .7s .2s both;}
+  .text-zone .tag{margin:14px auto 0;max-width:42ch;color:#c6d2e6;font-size:14.5px;animation:rise .7s .28s both;}
+  .cta{margin-top:26px;display:flex;flex-wrap:wrap;gap:11px;justify-content:center;animation:rise .7s .36s both;}
+  .btn{display:inline-flex;align-items:center;gap:8px;padding:11px 19px;border-radius:11px;font-weight:600;font-size:13.5px;border:1px solid var(--line);transition:.22s;}
   .btn.primary{background:linear-gradient(135deg,var(--accent),var(--accent2));color:#04201c;border:none;box-shadow:0 8px 26px rgba(45,212,191,.35);}
-  .btn.primary:hover{filter:brightness(1.08);transform:translateY(-2px);box-shadow:0 12px 32px rgba(45,212,191,.5);}
+  .btn.primary:hover{filter:brightness(1.08);transform:translateY(-2px);}
   .btn.ghost:hover{border-color:var(--accent);color:var(--accent);transform:translateY(-2px);}
 
-  /* HERO IMAGE */
-  .pic{justify-self:center;perspective:1000px;animation:floaty 6s ease-in-out infinite;}
-  .pic img{width:min(420px,82vw);aspect-ratio:1;display:block;border-radius:24px;
-    border:1px solid rgba(45,212,191,.35);
-    box-shadow:0 24px 70px rgba(0,0,0,.55), 0 0 60px rgba(45,212,191,.18);
-    transition:transform .18s ease, box-shadow .3s ease;animation:rise .8s .15s both;}
-  .pic img:hover{box-shadow:0 28px 80px rgba(0,0,0,.6), 0 0 80px rgba(45,212,191,.3);}
-  @keyframes floaty{0%,100%{transform:translateY(0);}50%{transform:translateY(-14px);}}
+  /* Portrait (sağ-üst) */
+  .portrait-zone{align-self:start;justify-self:center;}
+  .portrait-zone img{width:clamp(120px,12vw,168px);aspect-ratio:1;display:block;border-radius:20px;
+    border:1px solid rgba(45,212,191,.35);box-shadow:0 18px 50px rgba(0,0,0,.5),0 0 44px rgba(45,212,191,.18);
+    animation:floaty 6s ease-in-out infinite, rise .8s .15s both;}
 
-  .scrolldown{position:absolute;bottom:24px;left:50%;transform:translateX(-50%);z-index:2;color:var(--muted);font-size:12px;letter-spacing:2px;animation:bob 2s infinite;}
-  @keyframes bob{0%,100%{transform:translateX(-50%) translateY(0);}50%{transform:translateX(-50%) translateY(7px);}}
+  /* ===== ERP DASHBOARD MOCKUP (sol) ===== */
+  .hv{perspective:1500px;animation:rise .8s both;}
+  .hv-inner{position:relative;transform-style:preserve-3d;transform:rotateY(14deg) rotateX(7deg) rotateZ(-.4deg);
+    transition:transform .25s cubic-bezier(.2,.7,.2,1);animation:floaty 7s ease-in-out infinite;}
+  @keyframes floaty{0%,100%{translate:0 0;}50%{translate:0 -12px;}}
   @keyframes rise{from{opacity:0;transform:translateY(22px);}to{opacity:1;transform:translateY(0);}}
+  .dash{position:relative;border-radius:16px;overflow:hidden;background:linear-gradient(180deg,#0f1830,#0a0f1f);
+    border:1px solid var(--line2);box-shadow:0 40px 90px -30px rgba(0,0,0,.8),0 0 60px -20px var(--glow);}
+  .dash-glow{position:absolute;inset:0;pointer-events:none;background:radial-gradient(420px 200px at 20% -10%,rgba(45,212,191,.18),transparent 60%);z-index:3;}
+  .dash-top{display:flex;align-items:center;gap:12px;padding:12px 15px;background:rgba(255,255,255,.025);border-bottom:1px solid var(--line);}
+  .dots{display:flex;gap:6px;}
+  .dots span{width:10px;height:10px;border-radius:50%;background:#2a3450;}
+  .dots span:nth-child(1){background:#ff5f57;}.dots span:nth-child(2){background:#febc2e;}.dots span:nth-child(3){background:#28c840;}
+  .dash-title{font-size:.78rem;color:var(--muted);font-weight:500;}
+  .dash-live{margin-left:auto;display:flex;align-items:center;gap:6px;font-size:.7rem;color:var(--accent);background:rgba(45,212,191,.1);padding:4px 10px;border-radius:100px;border:1px solid rgba(45,212,191,.25);}
+  .lv-dot{width:6px;height:6px;border-radius:50%;background:var(--accent);box-shadow:0 0 8px var(--accent);animation:blink 1.8s ease-in-out infinite;}
+  @keyframes blink{0%,100%{opacity:1;}50%{opacity:.3;}}
+  .dash-body{display:grid;grid-template-columns:118px 1fr;min-height:286px;}
+  .dash-side{padding:14px 11px;border-right:1px solid var(--line);display:flex;flex-direction:column;gap:4px;background:rgba(0,0,0,.18);}
+  .ds-item{display:flex;align-items:center;gap:8px;font-size:.78rem;color:var(--faint);padding:7px 9px;border-radius:8px;}
+  .ds-item i{width:6px;height:6px;border-radius:2px;background:currentColor;opacity:.6;}
+  .ds-item.active{color:var(--ink);background:linear-gradient(90deg,rgba(45,212,191,.16),transparent);box-shadow:inset 2px 0 0 var(--accent);}
+  .ds-item.active i{background:var(--accent);opacity:1;}
+  .dash-main{padding:16px;}
+  .kpis{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:14px;}
+  .kpi{padding:11px;border-radius:10px;background:rgba(255,255,255,.03);border:1px solid var(--line);}
+  .kpi-l{font-size:.64rem;color:var(--faint);margin-bottom:4px;}
+  .kpi-v{font-weight:700;font-size:1.05rem;}
+  .kpi-up{font-size:.64rem;color:var(--accent);margin-top:3px;}
+  .kpi-up.alt{color:var(--accent2);}
+  .chart{padding:12px;border-radius:10px;background:rgba(255,255,255,.03);border:1px solid var(--line);margin-bottom:12px;}
+  .chart-head{display:flex;justify-content:space-between;font-size:.7rem;margin-bottom:9px;}
+  .chart-head span:first-child{color:var(--ink);font-weight:600;}
+  .chart-tag{color:var(--faint);}
+  .bars{width:100%;height:80px;display:block;}
+  .bar-g rect{fill:rgba(56,189,248,.45);}
+  .bar-g rect:nth-child(n+9){fill:rgba(45,212,191,.55);}
+  .trend{fill:none;stroke:var(--accent);stroke-width:2;stroke-linecap:round;stroke-linejoin:round;filter:drop-shadow(0 0 6px var(--glow));stroke-dasharray:600;stroke-dashoffset:600;animation:draw 2.4s ease forwards .4s;}
+  @keyframes draw{to{stroke-dashoffset:0;}}
+  .mini-rows{display:flex;flex-direction:column;gap:8px;}
+  .mrow{display:grid;grid-template-columns:118px 1fr 36px;align-items:center;gap:9px;font-size:.7rem;}
+  .mr-name{color:var(--muted);}
+  .mr-bar{height:6px;border-radius:6px;background:rgba(255,255,255,.07);overflow:hidden;}
+  .mr-bar i{display:block;height:100%;border-radius:6px;background:linear-gradient(90deg,var(--accent2),var(--accent));}
+  .mr-val{color:var(--ink);text-align:right;font-weight:600;}
+  .dchip{position:absolute;display:flex;align-items:center;gap:9px;padding:10px 13px;border-radius:12px;background:rgba(14,20,36,.85);backdrop-filter:blur(10px);border:1px solid var(--line2);box-shadow:0 20px 50px -15px rgba(0,0,0,.7);transform:translateZ(60px);z-index:4;}
+  .dchip b{font-size:.8rem;display:block;}
+  .dchip small{font-size:.66rem;color:var(--faint);}
+  .dchip .c-ico{font-size:1.1rem;}
+  .dchip-1{top:6%;right:-8%;animation:floaty 6s ease-in-out infinite .5s;}
+  .dchip-2{bottom:10%;left:-7%;animation:floaty 6.5s ease-in-out infinite;}
 
-  @media(max-width:860px){
-    .hero{padding-top:96px;}
-    .hero .wrap{grid-template-columns:1fr;text-align:center;gap:34px;}
-    .pic{order:-1;}
-    .pic img{width:min(300px,72vw);}
-    .htext .tag{margin-left:auto;margin-right:auto;}
-    .cta{justify-content:center;}
+  .scrolldown{position:absolute;bottom:22px;left:50%;transform:translateX(-50%);z-index:2;color:var(--muted);font-size:12px;letter-spacing:2px;animation:bob 2s infinite;}
+  @keyframes bob{0%,100%{transform:translateX(-50%) translateY(0);}50%{transform:translateX(-50%) translateY(7px);}}
+
+  @media(max-width:980px){
+    .hero .wrap{grid-template-columns:1fr;gap:36px;}
+    .text-zone{order:1;}
+    .portrait-zone{order:0;justify-self:center;}
+    .hv{order:2;max-width:520px;margin:0 auto;}
+    .hv-inner{transform:rotateY(0) rotateX(0);animation:none;}
+    .dchip-1{right:-2%;}.dchip-2{left:-2%;}
+  }
+  @media(max-width:560px){
+    .dash-body{grid-template-columns:92px 1fr;}
+    .ds-item{font-size:.7rem;padding:6px 7px;}
+    .kpi-v{font-size:.92rem;}
   }
 
   /* SECTIONS */
@@ -74,10 +127,8 @@
   h3.title{font-size:clamp(24px,4vw,34px);font-weight:800;margin-bottom:22px;letter-spacing:-.3px;}
   .lead{color:#cdd8e8;font-size:16px;max-width:760px;}
   .lead b{color:var(--ink);}
-
   .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:18px;margin-top:8px;}
-  .card{background:linear-gradient(180deg,rgba(255,255,255,.03),transparent),var(--panel);
-    border:1px solid var(--line);border-radius:16px;padding:24px;transition:.28s;position:relative;overflow:hidden;}
+  .card{background:linear-gradient(180deg,rgba(255,255,255,.03),transparent),var(--panel);border:1px solid var(--line);border-radius:16px;padding:24px;transition:.28s;position:relative;overflow:hidden;}
   .card:hover{border-color:rgba(45,212,191,.55);transform:translateY(-5px);box-shadow:0 18px 46px rgba(0,0,0,.45);}
   .card.flag{border-color:rgba(45,212,191,.5);background:linear-gradient(180deg,rgba(45,212,191,.09),var(--panel));}
   .card.flag::before{content:"★ Öne çıkan";position:absolute;top:14px;right:16px;font-size:10.5px;letter-spacing:1px;color:var(--accent);opacity:.85;}
@@ -91,22 +142,20 @@
   .mini:hover{border-color:rgba(45,212,191,.4);transform:translateY(-3px);}
   .mini b{display:block;font-size:14px;margin-bottom:3px;}
   .mini span{font-size:12px;color:var(--muted);}
-
   .skillblock{margin-top:18px;}
   .skillblock b{display:block;color:var(--accent);font-size:12px;text-transform:uppercase;letter-spacing:1.5px;margin-bottom:10px;}
   .chips{display:flex;flex-wrap:wrap;gap:9px;}
   .chip{background:var(--panel);border:1px solid var(--line);border-radius:999px;padding:7px 15px;font-size:13px;color:#cdd8e8;transition:.2s;}
   .chip:hover{border-color:var(--accent);color:var(--accent);}
-
   .contact a.card{display:block;}
   footer{padding:34px 0;border-top:1px solid var(--line);color:var(--muted);font-size:13px;text-align:center;}
-
   .reveal{opacity:0;transform:translateY(28px);transition:opacity .6s ease,transform .6s ease;}
   .reveal.in{opacity:1;transform:none;}
   @media(prefers-reduced-motion:reduce){
     .reveal{opacity:1;transform:none;transition:none;}
-    .scrolldown,.orb,.pic{animation:none;}
-    .htext h1,.htext .role,.htext .tag,.cta,.pic img{animation:none;}
+    .scrolldown,.orb,.hv-inner,.portrait-zone img,.dchip-1,.dchip-2{animation:none;}
+    .trend{animation:none;stroke-dashoffset:0;}
+    .text-zone h1,.text-zone .role,.text-zone .tag,.cta{animation:none;}
   }
 </style>
 </head>
@@ -123,21 +172,78 @@
 <header class="hero">
   <div class="orb a"></div><div class="orb b"></div>
   <div class="wrap">
-    <div class="htext">
+
+    <!-- SOL: ERP dashboard mockup -->
+    <div class="hv" id="tilt">
+      <div class="hv-inner" id="tiltInner">
+        <div class="dash">
+          <div class="dash-glow"></div>
+          <div class="dash-top">
+            <div class="dots"><span></span><span></span><span></span></div>
+            <div class="dash-title">Netsis / Tiger Entegre · Yönetim Paneli</div>
+            <div class="dash-live"><span class="lv-dot"></span>Canlı</div>
+          </div>
+          <div class="dash-body">
+            <aside class="dash-side">
+              <div class="ds-item active"><i></i>Genel Bakış</div>
+              <div class="ds-item"><i></i>Stok</div>
+              <div class="ds-item"><i></i>Cari</div>
+              <div class="ds-item"><i></i>Sipariş</div>
+              <div class="ds-item"><i></i>Rapor</div>
+            </aside>
+            <div class="dash-main">
+              <div class="kpis">
+                <div class="kpi"><div class="kpi-l">Aylık Ciro</div><div class="kpi-v">₺4,28M</div><div class="kpi-up">▲ %12,4</div></div>
+                <div class="kpi"><div class="kpi-l">Açık Sipariş</div><div class="kpi-v">1.347</div><div class="kpi-up">▲ %6,1</div></div>
+                <div class="kpi"><div class="kpi-l">Stok Devir</div><div class="kpi-v">8,9x</div><div class="kpi-up alt">▲ %3,2</div></div>
+              </div>
+              <div class="chart">
+                <div class="chart-head"><span>Gelir Akışı</span><span class="chart-tag">Son 12 ay</span></div>
+                <svg class="bars" viewBox="0 0 320 110" preserveAspectRatio="none">
+                  <g stroke="rgba(255,255,255,.06)" stroke-width="1">
+                    <line x1="0" y1="27" x2="320" y2="27"/><line x1="0" y1="55" x2="320" y2="55"/><line x1="0" y1="83" x2="320" y2="83"/>
+                  </g>
+                  <g class="bar-g">
+                    <rect x="6" y="70" width="14" height="40" rx="3"/><rect x="35" y="60" width="14" height="50" rx="3"/>
+                    <rect x="64" y="66" width="14" height="44" rx="3"/><rect x="93" y="48" width="14" height="62" rx="3"/>
+                    <rect x="122" y="54" width="14" height="56" rx="3"/><rect x="151" y="38" width="14" height="72" rx="3"/>
+                    <rect x="180" y="44" width="14" height="66" rx="3"/><rect x="209" y="30" width="14" height="80" rx="3"/>
+                    <rect x="238" y="34" width="14" height="76" rx="3"/><rect x="267" y="20" width="14" height="90" rx="3"/>
+                    <rect x="296" y="26" width="14" height="84" rx="3"/>
+                  </g>
+                  <polyline class="trend" points="13,80 42,68 71,74 100,54 129,60 158,42 187,48 216,32 245,36 274,20 303,26"/>
+                </svg>
+              </div>
+              <div class="mini-rows">
+                <div class="mrow"><span class="mr-name">e-Fatura gönderimi</span><span class="mr-bar"><i style="width:92%"></i></span><span class="mr-val">%92</span></div>
+                <div class="mrow"><span class="mr-name">Sipariş karşılama</span><span class="mr-bar"><i style="width:78%"></i></span><span class="mr-val">%78</span></div>
+                <div class="mrow"><span class="mr-name">Sistem çalışma süresi</span><span class="mr-bar"><i style="width:99%"></i></span><span class="mr-val">%99,9</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="dchip dchip-1"><span class="c-ico">🔗</span><div><b>Netsis</b><small>Entegre · canlı</small></div></div>
+        <div class="dchip dchip-2"><span class="c-ico">⚡</span><div><b>AI</b><small>Modül üretimi</small></div></div>
+      </div>
+    </div>
+
+    <!-- ORTA: metin -->
+    <div class="text-zone">
       <h1>Furkan Aras<br><span class="grad">ERP Entegrasyon &amp; .NET</span></h1>
       <div class="role">Team Lead · Kıdemli Yazılım Geliştirme Uzmanı</div>
-      <p class="tag">
-        <b style="color:#e6edf6">ERP · Proje Yönetimi · Yazılım</b>'ı tek çatıda birleştiren çözümler kuruyorum —
-        Logo Netsis/Tiger &amp; NetOpenX entegrasyonu, onay akışları ve <b style="color:#e6edf6">AI-destekli</b> platform geliştirme.
-      </p>
+      <p class="tag"><b style="color:#e6edf6">ERP · Proje Yönetimi · Yazılım</b>'ı tek çatıda birleştiriyorum — Logo Netsis/Tiger &amp; NetOpenX, onay akışları, AI-destekli platform.</p>
       <div class="cta">
         <a class="btn primary" href="cv.pdf" target="_blank">📄 CV (PDF)</a>
         <a class="btn ghost" href="https://github.com/FurkanAras012" target="_blank">GitHub</a>
         <a class="btn ghost" href="https://www.linkedin.com/in/furkan-aras-6670a5209/" target="_blank">LinkedIn</a>
-        <a class="btn ghost" href="mailto:furkanaras012@gmail.com">E-posta</a>
       </div>
     </div>
-    <div class="pic"><img id="heroImg" src="chaticonic.png" alt="Furkan Aras — dijital portre"></div>
+
+    <!-- SAĞ-ÜST: portre -->
+    <div class="portrait-zone">
+      <img src="chaticonic.png" alt="Furkan Aras — dijital portre">
+    </div>
+
   </div>
   <div class="scrolldown">↓ KAYDIR</div>
 </header>
@@ -231,19 +337,21 @@
 
 <script>
   document.getElementById('yr').textContent=new Date().getFullYear();
-  // Scroll reveal
   const io=new IntersectionObserver((es)=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}}),{threshold:.15});
   document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
-  // Hero görseline hafif mouse-tilt (şov)
-  (function(){
-    const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
-    const img=document.getElementById('heroImg'); if(!img||reduce) return;
-    const box=img.parentElement;
-    box.addEventListener('mousemove',e=>{ const r=img.getBoundingClientRect();
-      const x=(e.clientX-r.left)/r.width-0.5, y=(e.clientY-r.top)/r.height-0.5;
-      img.style.transform=`rotateY(${x*10}deg) rotateX(${-y*10}deg)`; });
-    box.addEventListener('mouseleave',()=>{ img.style.transform='rotateY(0) rotateX(0)'; });
-  })();
+  // 3D parallax tilt — dashboard
+  const tilt=document.getElementById('tilt'), ti=document.getElementById('tiltInner');
+  if(tilt&&ti&&matchMedia('(min-width:981px) and (pointer:fine)').matches){
+    let raf;
+    tilt.addEventListener('mousemove',e=>{ const r=tilt.getBoundingClientRect();
+      const px=(e.clientX-r.left)/r.width-.5, py=(e.clientY-r.top)/r.height-.5;
+      cancelAnimationFrame(raf);
+      raf=requestAnimationFrame(()=>{ ti.style.animation='none';
+        ti.style.transform=`rotateY(${14+px*12}deg) rotateX(${7-py*12}deg) rotateZ(-.4deg)`; });
+    });
+    tilt.addEventListener('mouseleave',()=>{ ti.style.transform='rotateY(14deg) rotateX(7deg) rotateZ(-.4deg)';
+      setTimeout(()=>{ti.style.animation='floaty 7s ease-in-out infinite'},300); });
+  }
 </script>
 
 </body>
